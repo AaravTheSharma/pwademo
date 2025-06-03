@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PWA iOS Demo</title>
+  
+  <!-- manifest 文件（兼容 Android 和部分桌面）-->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- iOS 专用 meta 标签 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="PWA演示">
+  <meta name="theme-color" content="#317EFB">
+
+  <style>
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f8fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      width: 100%;
+      background: #317EFB;
+      color: #fff;
+      padding: 1.5rem 0;
+      text-align: center;
+      font-size: 2rem;
+      letter-spacing: .1em;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 480px;
+      padding: 2rem 1rem 1rem 1rem;
+      box-sizing: border-box;
+    }
+    .card {
+      background: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      padding: 2rem;
+      margin: 2rem 0 1rem 0;
+      text-align: center;
+    }
+    .tip {
+      margin-top: 1.5rem;
+      color: #888;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    PWA iOS Demo
+  </header>
+  <main>
+    <div class="card">
+      <h2>欢迎体验 PWA！</h2>
+      <p>将本网页添加到主屏幕，可以像 App 一样使用。</p>
+      <p class="tip">在 Safari 浏览器中，点底部分享按钮<br>选择“添加到主屏幕”</p>
+      <img src="/share-ios.png" alt="iOS分享按钮示意" style="width: 80px; margin-top: 1rem; opacity:.7">
+    </div>
+    <div class="card">
+      <h3>离线体验</h3>
+      <p>关闭网络后再次打开页面，依然可访问此内容。</p>
+    </div>
+  </main>
+  <script>
+    // 注册 Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(function(reg) {console.log('SW 注册成功', reg);})
+        .catch(function(err) {console.warn('SW 注册失败', err);});
+    }
+  </script>
+</body>
+</html>
