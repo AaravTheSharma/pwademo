@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwa-ios-demo-v1';
+const CACHE_NAME = 'pwa-ios-demo-v2';
 const URLS_TO_CACHE = [
   '/',
   '/index.html',
