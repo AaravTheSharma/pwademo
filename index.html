@@ -57,6 +57,42 @@
       color: #888;
       font-size: 1rem;
     }
+    .share-icon-placeholder {
+      width: 50px;
+      height: 50px;
+      position: relative;
+      margin: 1rem auto;
+      border: 3px solid #888;
+      border-radius: 8px;
+      opacity: 0.7;
+    }
+
+    .share-icon-placeholder::before, .share-icon-placeholder::after {
+      content: '';
+      position: absolute;
+    }
+
+    .share-icon-placeholder::before { /* The upward arrow stem */
+      width: 6px;
+      height: 20px;
+      background: #888;
+      left: 50%;
+      top: 21px;
+      transform: translateX(-50%);
+      border-radius: 1px;
+    }
+
+    .share-icon-placeholder::after { /* The arrow head */
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 12px solid #888;
+      left: 50%;
+      top: 9px;
+      transform: translateX(-50%);
+    }
+
   </style>
 </head>
 <body>
@@ -67,8 +103,8 @@
     <div class="card">
       <h2>欢迎体验 PWA！</h2>
       <p>将本网页添加到主屏幕，可以像 App 一样使用。</p>
-      <p class="tip">在 Safari 浏览器中，点底部分享按钮<br>选择“添加到主屏幕”</p>
-      <img src="/share-ios.png" alt="iOS分享按钮示意" style="width: 80px; margin-top: 1rem; opacity:.7">
+      <p class="tip">在 Safari 浏览器中，点底部分享按钮<br>选择"添加到主屏幕"</p>
+      <div class="share-icon-placeholder" style="margin-top: 1rem;"></div>
     </div>
     <div class="card">
       <h3>离线体验</h3>
